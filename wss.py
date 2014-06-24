@@ -42,7 +42,6 @@ print "Listening for connections"
 def clientthread(client):
 	while True:	
 		for line in content:
-			print 'Function 1'
 			length = len(line)
                        	preamble = "\x81\x7e" + struct.pack(">i", length)[2:]
                         client.send(preamble+line)
