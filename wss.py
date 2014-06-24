@@ -40,7 +40,6 @@ s.listen(10)
 print "Listening for connections"
 
 def clientthread(client):
-	print 'main function'
 	while True:	
 		for line in content:
 			print 'Function 1'
@@ -69,38 +68,3 @@ while 1:
 	client.recv(1)
 	start_new_thread(clientthread ,(client,))
 s.close()
-#		s.close()
-#		for line in content:
-#			length = len(line)
-#			preamble = "\x81\x7e" + struct.pack(">i", length)[2:]
-#			client.send(preamble+line)
-#			print "Sending Attack Event Size: " + hex(length) + " Bytes\n"
-#			time.sleep(randint(0,3))
-#		start_new_thread(clientthread ,(client,))
-#	client.close()
-
- 
-#while 1:
-#	client, address = s.accept()
-#	print 'Got connection from', address
-#	text = client.recv(1024)
-#	print text
-
-#	key = (re.search('Sec-WebSocket-Key:\s+(.*?)[\n\r]+', text)
-#   	.groups()[0]
-#   	.strip())
- 
-#	response_key = b64encode(sha1(key + GUID).digest())
-#	response = '\r\n'.join(websocket_answer).format(key=response_key)
-
-#	print response 
-#	client.send(response)
-#	client.recv(1)
-
-
-#for line in content:
-#length = len(line)
-#preamble = "\x81\x7e" + struct.pack(">i", length)[2:]
-#client.send(preamble+line)
-#print "Sending Attack Event Size: " + hex(length) + " Bytes\n"
-#time.sleep(randint(0,3))		
