@@ -5,7 +5,7 @@ import binascii
 import struct
 import time
 import sys
-from random import randint
+import random
 from base64 import b64encode
 from hashlib import sha1
 from thread import *
@@ -46,7 +46,9 @@ def clientthread(client):
                        	preamble = "\x81\x7e" + struct.pack(">i", length)[2:]
                         client.send(preamble+line)
                         print "Sending Attack Event Size: " + hex(length) + " Bytes\n"
-                        time.sleep(randint(0,3))
+			random.seed()
+			n = random.random()
+                        time.sleep(n)
 		client.close()
 
 
