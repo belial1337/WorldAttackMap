@@ -29,10 +29,12 @@ GUID = "258EAFA5-E914-47DA-95CA-C5AB0DC85B11"
  
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind(('192.168.1.101', 443))
-s.listen(1)
+s.listen(10)
+print "Listening for connections"
  
 while True:
 	client, address = s.accept()
+	print 'Got connection from', address
 	text = client.recv(1024)
 	print text
  
